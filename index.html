@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous" />
+    <style>
+      #mycanvas {
+        border: 2px solid black;
+        height: 400px;
+        width: 400px;
+      }
+
+      #mybutt {
+        background: linear-gradient(rgb(47, 158, 163), rgb(48, 62, 143));
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+
+      .hidden {
+        display: none;
+      }
+      #eror {
+        font-family: fantasy;
+        color: rgb(143, 48, 96);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="mycanvas" onclick="drawIt(event)"></canvas>
+
+    <div class="row">
+      <div class="col">
+        <form class="main-form need-validation">
+          <div class="row">
+            <div class="col">
+              <select
+                id="shapes"
+                onchange="selectChanged()"
+                class="custom-select"
+              >
+                <option value="line">line</option>
+                <option value="circle">circle</option>
+                <option value="square">square</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div id="eror" class="text-danger"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button id="mybutt" onclick="clearCanvas()">clear</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <!--line div-->
+        <div id="line" class="toolbox hidden">
+          <input type="color" id="line-color" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <!--circle input-->
+        <div id="circle" class="toolbox hidden">
+          <input type="color" id="circle-color" />
+          <input
+            type="text"
+            id="circle-radius"
+            placeholder="enter radius"
+            min="0"
+            max="100"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <!--square  input-->
+        <div id="square" class="toolbox hidden">
+          <input
+            type="text"
+            id="square-width"
+            min="0"
+            max="100"
+            placeholder="enter width"
+            required
+          />
+          <!--height  input-->
+          <input
+            type="text"
+            id="square-height"
+            min="0"
+            max="100"
+            placeholder="enter height"
+            required
+          />
+          <input type="color" id="square-color" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <input
+          type="text"
+          placeholder="search shape"
+          onkeypress="searchShape"
+          id="searchShapeh"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div id="history"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="index.js"></script>
+  </body>
+</html>
